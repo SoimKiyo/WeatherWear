@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Paramètre de la page (permet d'adapter la largeur à la taille de la fenêtre) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titre de la page -->
+    <title>WeatherWear - Accueil</title>
+
+    <!-- Style de la page -->
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <!-- Favicons sous tout les formats -->
+    <link rel="icon" type="image/png" href="/static/utils/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/static/utils/images/favicon.svg" />
+    <link rel="shortcut icon" href="/static/utils/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/utils/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="WeatherWear" />
+    <link rel="manifest" href="/static/utils/images/site.webmanifest" />
+</head>
+<body>
+    <!-- Importation du header -->
+    {% include 'models/header.html' %}
+    
+    <!-- Première section (Titre/Logo/...) -->
+    <div class="container">
+        <section class="first-section">
+            <h1 class="site-title">WeatherWear</h1>
+            <p class="intro-text">Découvrez la meilleure manière de gérer votre garde-robe en fonction de la météo. <br>Et prévoyez votre outfit en quelques cliques.</p>
+            <a href="/signup" class="start-button">Commencer</a>
+        </section>
+
+        <!-- Première section (Fonctionnalités/Videos/...) -->
+        <section class="second-section">
+            <h2 class="features-title">C'est quoi WeatherWear ?</h2>
+            <p class="features-description">WeatherWear vous aide à planifier vos tenues selon la météo de votre localisation. Découvrez les fonctionnalités ci-dessous :</p>
+            
+            <!-- Grille pour les cartes de présentation des fonctionnalités -->
+            <div class="features-frame">
+                <!-- Cartes de présentation des fonctionnalités -->
+                <div class="feature-card">
+                    <h3>⛅ Suggestions météo</h3>
+                    <p>Obtenez des recommandations de vêtements basées sur la météo de votre localisation.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>👕 Gestion de garde-robe</h3>
+                    <p>Ajoutez vos vêtements pour les organiser et planifier vos tenues facilement.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚙️ Personnalisation</h3>
+                    <p>Personnalisez vos suggestions en fonction de votre style et de vos préférences.</p>
+                </div>
+            </div>
+            
+            <!-- Vidéo de présentation du site -->
+            <div class="video-container">
+                <video controls>
+                    <source src="static/utils/videos/wwpromvideo.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+    </div>
+
+    <!-- Importation du footer -->
+    {% include 'models/footer.html' %}
+    
+    <!-- JS de la page -->
+    <script src="static/js/index.js"></script>
+</body>
+</html>

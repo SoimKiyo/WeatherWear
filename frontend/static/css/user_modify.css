@@ -1,0 +1,190 @@
+/* Import des polices d'écritures */
+@font-face {
+    font-family: "No5";
+    src: url('../utils/fonts/No5/No5-Regular.eot');
+    src: url('../utils/fonts/No5/No5-Regular.eot') format('embedded-opentype'),
+         url('../utils/fonts/No5/No5-Regular.woff2') format('woff2'),
+         url('../utils/fonts/No5/No5-Regular.woff') format('woff'),
+         url('../utils/fonts/No5/No5-Regular.ttf') format('truetype');
+}
+
+/* Corp du site */
+body {
+    font-family: "No5";
+    background-color: #f1f1fb;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x:hidden;
+}
+
+/* Tout les éléments du site */
+* {
+    box-sizing: border-box;
+}
+
+/* Container de la page */
+.container {
+    flex: 1;
+    margin-top: 80px;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Container de navigation */
+.tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+/* Bouton de navigation */
+.tab button {
+    font-family: "No5";
+    background-color: transparent;
+    color: #15161a;
+    border: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Bouton de navigation (Quand on passe dessus) */
+.tab button:hover {
+    box-shadow: 0px 2px 0px 0px #1e3cfd;
+    border-bottom: 2px solid #1e3cfd;
+}
+
+/* Titres */
+h2 {
+    color: #15161a;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Entrées */
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dedede;
+    color: #15161a;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Entrées (Quand on passe dessus) */
+input:hover {
+    background-color: #eaeaea;
+}
+
+/* Bouton du formulaire */
+.formcontainer button{
+    width: 100%;
+    padding: 10px;
+    background-color: #1a1515;
+    color: #fafaff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-family: "No5";
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Bouton du formulaire (Quand on passe dessus) */
+.formcontainer button:hover{
+    background-color: #d41e1e;
+}
+
+/* Popup de sauvegarde */
+#save-popup {
+    background-color: #15161a;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px 15px;
+    border-radius: 15px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 80%;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Texte de la popup de sauvegarde */
+.popuptext {
+    color: #fafaff;
+    font-size: 15px;
+    text-align: left;
+    margin-right: 10px;
+    flex-grow: 1;
+}
+
+/* Bouton de la popup de sauvegarde */
+.popupbutton {
+    font-family: "No5";
+    background-color: #2b2d3a;
+    color: #fafaff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+/* Bouton de la popup de sauvegarde (Quand on passe dessus) */
+.popupbutton:hover {
+    background-color: #1e3cfd;
+}
+
+/* Classe permettant de cacher un élément (Ici la savepopup) */
+.hidden {
+    display: none !important;
+}
+
+/* Map */
+#map {
+    height: 400px;
+    width: 100%;
+    z-index: 0;
+    border-radius: 25px;
+    margin-top: 15px;
+}
+
+
+/* Ecrans de téléphone */
+@media (max-width: 768px) {
+    #save-popup {
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .popuptext {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .popupbutton {
+        margin-bottom: 5px;
+    }
+}

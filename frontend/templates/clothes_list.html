@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Paramètre de la page (permet d'adapter la largeur à la taille de la fenêtre) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titre de la page -->
+    <title>Garde-Robe - WeatherWear</title>
+
+    <!-- Style de la page -->
+    <link rel="stylesheet" href="static/css/clothes_list.css">
+
+    <!-- Favicons sous tout les formats -->
+    <link rel="icon" type="image/png" href="/static/utils/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/static/utils/images/favicon.svg" />
+    <link rel="shortcut icon" href="/static/utils/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/utils/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="WeatherWear" />
+    <link rel="manifest" href="/static/utils/images/site.webmanifest" />
+</head>
+<body>
+    {% include 'models/header.html' %}
+
+    <!-- Container de la page -->
+    <div class="container">
+
+        <!-- Menu de navigation -->
+        <div class="tab">
+            <button class="tablinks" onclick="window.location.href='/clothes_suggested'">Vêtements et Météo</button>
+            <button class="tablinks" onclick="window.location.href='/clothes_list'">Ma Garde-Robe</button>
+            <button class="tablinks" onclick="window.location.href='/user_modify'">Gérer le Compte</button>
+        </div>
+        
+        <!-- Bouton de création de nouveau vêtement -->
+        <button class="createbutton" onclick="window.location.href='/clothes_create'">Ajouter un vêtement</button>
+        
+        <!-- Grille affichant les vêtements de la Garde-Robe -->
+        <div class="clothes-frame">
+            {% for clothes in wardrobe %}
+            <!-- Image du vêtement -->
+            <div class="clothescard">
+                <img src="data:image/jpeg;base64,{{ clothes.cloth_image }}" alt="Image de {{ clothes.name }}">
+                <div class="clothescard-info">
+                    <!-- Nom du vêtement -->
+                    <h4>{{ clothes.name }}</h4>
+                    <!-- Boutons action (modifier ou supprimer le vêtement) -->
+                    <div class="clothescard-actions">
+                        <button class="btn btn-delete" onclick="deleteClothes({{ clothes.id }})">Supprimer</button>
+                        <button class="btn btn-edit" onclick="window.location.href='/clothes_modify/{{ clothes.id }}'">Modifier</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <!-- JS de la page -->
+    {% include 'models/footer.html' %}
+    <script src="static/js/clothes_list.js"></script>
+</body>
+</html>

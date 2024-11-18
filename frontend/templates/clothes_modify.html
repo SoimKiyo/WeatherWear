@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Paramètre de la page (permet d'adapter la largeur à la taille de la fenêtre) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titre de la page -->
+    <title>Modifier un vêtement - WeatherWear</title>
+
+    <!-- Style de la page -->
+    <link rel="stylesheet" href="../static/css/clothes_modify.css">
+
+    <!-- Favicons sous tout les formats -->
+    <link rel="icon" type="image/png" href="/static/utils/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/static/utils/images/favicon.svg" />
+    <link rel="shortcut icon" href="/static/utils/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/utils/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="WeatherWear" />
+    <link rel="manifest" href="/static/utils/images/site.webmanifest" />
+</head>
+<body>
+    <!-- Importation du header -->
+    {% include 'models/header.html' %}
+
+    <!-- Container du formulaire -->
+    <div class="formcontainer">
+        <h2>Modifier "{{ wardrobe.name }}"</h2>
+
+        <!-- Formulaire POST qui envoie vers le "clothes_modify/l'id du vêtement" -->
+        <form id="modifyclothesform" action="/clothes_modify/{{ wardrobe.id }}" method="POST" enctype="multipart/form-data">
+            <!-- Première étape (Envoie de l'image) -->
+            <div class="form-step active" id="step1">
+                <div class="upload-box" id="uploadBox" onclick="document.getElementById('image').click()">
+                    <i class="icon">👕</i>
+                    <span>Déposez une photo de votre vêtement en cliquant</span>
+
+                    <!-- Entrée permettant d'envoyer seulement des images -->
+                    <input type="file" id="image" name="clothes_image" accept="image/*" style="display: none;">
+                    <!-- Si il y a une image alors afficher : -->
+                    {% if wardrobe.cloth_image %}
+                        <!-- Image en base64 -->
+                        <img src="data:image/jpeg;base64,{{ wardrobe.cloth_image }}" style="max-width: 100%; max-height: 100%; border-radius: 8px;">
+                    {% endif %}
+                </div>                
+                <button type="button" class="prev-btn" onclick="window.location.href='/clothes_list'">Annuler</button>
+
+                <!-- Bouton pour passer à l'étape suivante -->
+                <button type="button" class="next-btn" onclick="nextStep(2)">Suivant</button>
+            </div>
+
+            <!-- Seconde étape (Envoie des choix parmis les listes) -->
+            <div class="form-step" id="step2">
+
+                <!-- Listes des catégories -->
+                <label for="clothes_type">Type de vêtement :</label>
+                <select id="clothes_type" name="clothes_type" required onchange="updateSubtypes()">
+                    <option value="" disabled>Choisir un type de vêtement</option>
+                    <option value="Vestes" {% if wardrobe.type == "Vestes" %}selected{% endif %}>Vestes</option>
+                    <option value="Hauts" {% if wardrobe.type == "Hauts" %}selected{% endif %}>Hauts</option>
+                    <option value="Bas" {% if wardrobe.type == "Bas" %}selected{% endif %}>Bas</option>
+                    <option value="Accessoires" {% if wardrobe.type == "Accessoires" %}selected{% endif %}>Accessoires</option>
+                </select>
+
+                <!-- Listes des vêtements -->
+                <label for="clothes_subtype">Sous-type de vêtement :</label>
+                <select id="clothes_subtype" name="clothes_subtype" required onchange="updateMaterials()" data-existing-value="{{ wardrobe.subtype }}">
+                    <option value="" disabled>Choisir un sous-type</option>
+                </select>
+
+                <!-- Listes des matières -->
+                <label for="clothes_material">Matière :</label>
+                <select id="clothes_material" name="clothes_material" required onchange="updateColors()" data-existing-value="{{ wardrobe.texture }}">
+                    <option value="" disabled>Choisir une matière</option>
+                </select>
+
+                <!-- Liste des couleurs -->
+                <label for="clothes_color">Couleur :</label>
+                <select id="clothes_color" name="clothes_color" required data-existing-value="{{ wardrobe.color }}">
+                    <option value="" disabled>Choisir une couleur</option>
+                </select>
+
+                <!-- Bouton pour revenir à l'étape précedente -->
+                <button type="button" class="prev-btn" onclick="prevStep(1)">Précédent</button>
+                <!-- Bouton pour soumettre le formulaire -->
+                <button type="submit" class="submit-btn">Modifier</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- JS de la page -->
+    <script src="../static/js/clothes_modify.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    
+    <!-- Paramètre de la page (permet d'adapter la largeur à la taille de la fenêtre) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titre de la page -->
+    <title>Modification de Compte - WeatherWear</title>
+
+    <!-- Style de la page -->
+    <link rel="stylesheet" href="static/css/user_modify.css">
+    <!-- Style de la map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+
+    <!-- Favicons sous tout les formats -->
+    <link rel="icon" type="image/png" href="/static/utils/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/static/utils/images/favicon.svg" />
+    <link rel="shortcut icon" href="/static/utils/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/utils/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="WeatherWear" />
+    <link rel="manifest" href="/static/utils/images/site.webmanifest" />
+</head>
+<body>
+    <!-- Importation du header -->
+    {% include 'models/header.html' %}
+
+    <!-- Container de la page -->
+    <div class="container">
+
+        <!-- Menu de navigation -->
+        <div class="tab">
+            <button class="tablinks" onclick="window.location.href='/clothes_suggested'">Vêtements et Météo</button>
+            <button class="tablinks" onclick="window.location.href='/clothes_list'">Ma Garde-Robe</button>
+            <button class="tablinks" onclick="window.location.href='/user_modify'">Gérer le Compte</button>
+        </div>
+        
+        <h2>Modifier votre compte</h2>
+
+        <!-- Formulaire POST -->
+        <form class="formcontainer" id="usermodifyform" method="POST">
+            <!-- Entrées du formulaire -->
+            <div>
+                <label>Email</label>
+                <input type="email" id="email" name="email" value="{{ user.email }}">
+            </div>
+            <div>
+                <label>Nouveau mot de passe</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div>
+                <label>Confirmer mot de passe</label>
+                <input type="password" id="password_confirm" name="password_confirm">
+            </div>
+
+            <!-- Carte interactive pour sélectionner la localisation -->
+            <label>Sélectionner votre localisation sur la carte</label>
+            <div id="map"></div><br>
+
+            <!-- Bouton de suppression du compte -->
+            <button type="submit" class="delete_account" name="delete_account" value="true">Supprimer le compte</button>
+
+            <!-- Champs cachés pour stocker les informations de la cartes -->
+            <input type="hidden" id="latitude" name="latitude" value="{{ user.latitude }}">
+            <input type="hidden" id="longitude" name="longitude" value="{{ user.longitude }}">
+            <input type="hidden" id="city" name="city" value="{{ user.city }}">
+            <input type="hidden" id="country" name="country" value="{{ user.country }}">
+        </form>
+    </div>
+
+    <!-- Popup de sauvegarde -->
+    <div id="save-popup" class="hidden">
+        <span class="popuptext" >Des changements ont été détectés. Voulez-vous sauvegarder ?</span>
+        <button class="popupbutton" id="cancel-changes">Annuler</button>
+        <button class="popupbutton" id="confirm-save">Enregistrer</button>
+    </div>
+
+    <!-- Importation du footer -->
+    {% include 'models/footer.html' %}
+
+    <!-- JS de la map -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <!-- JS de la page -->
+    <script src="static/js/user_modify.js"></script> 
+</body>
+</html>

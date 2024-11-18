@@ -1,0 +1,159 @@
+<style>
+    /* Import des polices d'écritures */
+    @font-face {
+        font-family: "No5";
+        src: url('/static/utils/fonts/No5/No5-Regular.eot');
+        src: url('/static/utils/fonts/No5/No5-Regular.eot') format('embedded-opentype'),
+            url('/static/utils/fonts/No5/No5-Regular.woff2') format('woff2'),
+            url('/static/utils/fonts/No5/No5-Regular.woff') format('woff'),
+            url('/static/utils/fonts/No5/No5-Regular.ttf') format('truetype');
+    }
+
+    /* En Tête du site */
+    header {
+        width: 100%;
+        padding: 10px 40px;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        margin-top: 10px;
+    }
+
+    /* Container de la barre de navigation */
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    /* Section logo de la barre de navigation (Partie gauche) */
+    .navbar-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Logo de la section logo */
+    .logo {
+        width: 40px;
+        height: auto;
+    }
+
+    /* Nom du site de la section logo */
+    .site-name {
+        font-family: "No5";
+        font-size: 20px;
+        font-weight: bold;
+        color: #1e3cfd;
+    }
+
+    /* Boutons ("Menu déroulant") */
+    .account-dropdown, .btn-signup {
+        font-family: "No5";
+        font-size: 16px;
+        color: #fafaff;
+        background-color: #15161a;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 20px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    /* Boutons ("Menu déroulant") (Quand on passe dessus) */
+    .account-dropdown:hover, .btn-signup:hover {
+        background-color: #40424D;
+    }
+
+    /* Container du menu déroulant */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 40px;
+        top: 60px;
+        background-color: #15161a;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        overflow: hidden;
+        min-width: 160px;
+    }
+
+    /* Liens du menu déroulant */
+    .dropdown-content a {
+        color: #fafaff;
+        padding: 10px 15px;
+        display: block;
+        text-decoration: none;
+        font-family: "No5";
+        font-size: 14px;
+        transition: background-color 0.3s;
+    }
+
+    /* Liens du menu déroulant (Quand on passe dessus) */
+    .dropdown-content a:hover {
+        background-color: #40424D;
+    }
+
+
+/* Responsive */
+/* Responsive pour les écrans de téléphone */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 20px;
+    }
+}
+</style>
+
+<header>
+    <!-- Container de la barre de navigation (En-Tête) -->
+    <nav class="navbar">
+        <!-- Container de la partie gauche (Logo/Nom) -->
+        <div class="navbar-logo">
+            <!-- Hyperlink dirigeant vers l'index (Intégrant le logo) -->
+            <a href="/">
+                <img src="/static/utils/images/logo.png" class="logo">
+            </a>
+            <span class="site-name">WeatherWear</span>
+        </div>
+        
+        <!-- Container de la partie droite (Bouton de connexion/compte) -->
+        <div class="navbar-user">
+            <!-- Si l'utilisateur est connecter alors afficher: -->
+            {% if session.get('user_id') %}
+                <!-- Bouton/Menu déroulant -->
+                <button class="account-dropdown" onclick="toggleDropdown()">Compte</button>
+                <!-- Contenu du menu déroulant -->
+                <div class="dropdown-content" id="userDropdown">
+                    <a href="/user_modify">Mon Compte</a>
+                    <a href="/logout">Déconnexion</a>
+                </div>
+            <!-- Sinon afficher: -->
+            {% else %}
+                <!-- Bouton Inscription -->
+                <a href="/signup" class="btn-signup">Inscription</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>
+
+<script>
+    // Ouvre le menu dropdown quand la fonction est appelé
+    function toggleDropdown() {
+        const dropdown = document.getElementById("userDropdown");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    // Fermer le menu dropdown si on clique en dehors
+    window.onclick = function(event) {
+        if (!event.target.matches('.account-dropdown')) {
+            const dropdown = document.getElementById("userDropdown");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            }
+        }
+    };
+</script>

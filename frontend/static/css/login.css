@@ -1,0 +1,147 @@
+/* Import des polices d'écritures */
+@font-face {
+    font-family: "No5";
+    src: url('../utils/fonts/No5/No5-Regular.eot');
+    src: url('../utils/fonts/No5/No5-Regular.eot') format('embedded-opentype'),
+         url('../utils/fonts/No5/No5-Regular.woff2') format('woff2'),
+         url('../utils/fonts/No5/No5-Regular.woff') format('woff'),
+         url('../utils/fonts/No5/No5-Regular.ttf') format('truetype');
+}
+
+/* Corp du site */
+body {
+    font-family: "No5";
+    background-color: #f1f1fb;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+}
+
+/* Tout les éléments du site */
+* {
+    box-sizing: border-box;
+}
+
+#blankpart {
+    background-image: url("../utils/images/login-back.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #f1f1fb;
+    width: 100%;
+    max-width: 60%;
+    height: 100vh;
+    z-index: 0;
+}
+
+/* Container du Formulaire */
+.formcontainer {
+    flex: 1;
+    width: 100%;
+    max-width: 40%;
+    height: 100vh;
+    padding: 50px;
+    background: #15161a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0px 20px 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+/* Titres */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fafaff;
+}
+
+/* Sous-Titres */
+h3 {
+    color: #fafaff;
+}
+
+/* Container des entrées */
+.input-box {
+    margin-bottom: 15px;
+}
+
+/* Entrées */
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #fafaff;
+    color: #15161a;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Bouton du formulaire */
+.input-box.button input {
+    font-family: "No5";
+    background-color: #2b2d3a;
+    color: #fafaff;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s background-color;
+}
+
+/* Bouton du formulaire (Quand on passe dessus) */
+.input-box.button input:hover {
+    background-color: #40424D;
+}
+
+/* Texte d'Inscription */
+.text {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Lien du texte d'Inscription */
+.text a {
+    color: #1e3cfd;
+    text-decoration: none;
+}
+
+/* Lien du texte d'Inscription (Quand on passe dessus) */
+.text a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+/* Grandes tablettes et petits ordinateurs portables */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    #blankpart {
+        max-width: 50%;
+    }
+
+    .formcontainer {
+        max-width: 50%;
+    }
+
+    .input-box input, .input-box.button input {
+        padding: 15px;
+    }
+
+}
+
+/* Ecrans de téléphone */
+@media (max-width: 768px) {
+    #blankpart {
+        display: none;
+    }
+
+    .formcontainer {
+        width: 100%;
+        height: 100vh;
+        max-width: none;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

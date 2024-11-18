@@ -1,0 +1,182 @@
+/* Import des polices d'écritures */
+@font-face {
+    font-family: "No5";
+    src: url('../utils/fonts/No5/No5-Regular.eot');
+    src: url('../utils/fonts/No5/No5-Regular.eot') format('embedded-opentype'),
+         url('../utils/fonts/No5/No5-Regular.woff2') format('woff2'),
+         url('../utils/fonts/No5/No5-Regular.woff') format('woff'),
+         url('../utils/fonts/No5/No5-Regular.ttf') format('truetype');
+}
+
+/* Corp du site */
+body {
+    font-family: "No5";
+    background-color: #f1f1fb;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x:hidden;
+}
+
+/* Tout les éléments du site */
+* {
+    box-sizing: border-box;
+}
+
+/* Container de la page */
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x:hidden;
+}
+
+/* Container de la Première section */
+.first-section {
+    background-image: url("../utils/images/index-back.png");
+    background-color: #15161a;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fafaff;
+    text-align: center;
+    padding: 300px 20px;
+    width: 100%;
+}
+
+/* Nom du site */
+.site-title {
+    font-size: 4em;
+    font-weight: bold;
+    margin:0;
+}
+
+/* Description du site */
+.intro-text {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+/* Bouton d'inscription "Commencer" */
+.start-button {
+    background-color: #1e3cfd;
+    color: #fafaff;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* Bouton d'inscription "Commencer" (Quand on passe dessus) */
+.start-button:hover {
+    background-color: #263bc5;
+}
+
+/* Container de la deuxième section */
+.second-section {
+    background-color: inherit;
+    text-align: center;
+    padding: 60px 20px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+/* Titre de la deuxième section */
+.features-title {
+    font-size: 2.5em;
+    color: #15161a;
+    margin-bottom: 10px;
+}
+
+/* Description de la deuxième section */
+.features-description {
+    font-size: 1.2em;
+    color: #15161a;
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+}
+
+/* Grille des cartes */
+.features-frame {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    gap: 50px;
+}
+
+/* Cartes de présentations */
+.feature-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    text-align: center;
+}
+
+/* Titre des cartes */
+.feature-card h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #15161a;
+}
+
+/* Textes des cartes */
+.feature-card p {
+    font-size: 1em;
+    color: #15161a;
+}
+
+/* Container de la Video */
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+/* Video */
+.video-container video {
+    width: 100%;
+    max-width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+/* Grandes tablettes et petits ordinateurs portables */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+
+    .video-container video {
+        max-width: 80%;
+    }
+}
+
+/* Ecrans de téléphone */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 2em;
+    }
+
+    .intro-text {
+        font-size: 1em;
+    }
+    
+    .video-container {
+        margin-top: 100px;
+    }
+
+    .video-container video {
+        max-width: 90%;
+    }
+}

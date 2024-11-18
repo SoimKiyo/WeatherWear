@@ -1,0 +1,227 @@
+<style>
+    /* Import des polices d'écritures */
+    @font-face {
+            font-family: "No5";
+            src: url('/static/utils/fonts/No5/No5-Regular.eot');
+            src: url('/static/utils/fonts/No5/No5-Regular.eot') format('embedded-opentype'),
+                url('/static/utils/fonts/No5/No5-Regular.woff2') format('woff2'),
+                url('/static/utils/fonts/No5/No5-Regular.woff') format('woff'),
+                url('/static/utils/fonts/No5/No5-Regular.ttf') format('truetype');
+    }
+
+    /* Pied de page du site */
+    footer {
+        background-color: #15161a;
+        color: #fafaff;
+        padding: 40px 20px;
+        font-family: "No5";
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 100px;
+    }
+
+    /* Container du pied de page */
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 95%;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+
+    /* Section logo du pied de page (Partie gauche) */
+    .footer-logo {
+        flex: 1;
+        max-width: 250px;
+    }
+
+    /* Logo de la section logo */
+    .footer-logo .logo {
+        width: 40px;
+        height: auto;
+        margin-bottom: 10px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    /* Lien du logo de la section logo */
+    .footer-logo a {
+        text-decoration: none;
+    }
+
+    /* Nom du site de la section logo */
+    .site-namefooter {
+        font-size: 20px;
+        font-weight: bold;
+        color: #fafaff;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 8px;
+    }
+
+    /* Description de la section logo */
+    .footer-description {
+        font-size: 14px;
+        color: #b5b5b5;
+        margin-top: 10px;
+    }
+
+    /* Container des liens */
+    .footer-links {
+        display: flex;
+        gap: 50px;
+        justify-content: flex-end;
+        flex: 2;
+    }
+
+    /* Partie des Colonnes */
+    .footer-column {
+        text-align: left;
+    }
+
+    /* Titre des colonnes */
+    .footer-column h3 {
+        font-size: 16px;
+        margin-bottom: 15px;
+        color: #fafaff;
+    }
+
+    /* Liens des colonnes */
+    .footer-column a {
+        display: block;
+        color: #b5b5b5;
+        text-decoration: none;
+        font-size: 14px;
+        margin-bottom: 8px;
+        transition: color 0.3s;
+    }
+
+    /* Liens des colonnes (Quand on passe dessus) */
+    .footer-column a:hover {
+        color: #fafaff;
+    }
+
+    /* Réseaux Sociaux */
+    .footer-social {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+        margin-left:100px;
+    }
+
+    /* Liens des réseaux sociaux */
+    .footer-social a {
+        color: #b5b5b5;
+        font-size: 20px;
+        text-decoration: none;
+        transition: color 0.3s;
+        padding-right: 5px;
+    }
+
+    /* Liens des réseaux sociaux (Quand on passe dessus) */
+    .footer-social a:hover {
+        color: #fafaff;
+    }
+
+    /* Texte de Copyright */
+    .footer-bottom {
+        padding-top: 15px;
+        text-align: left;
+        font-size: 12px;
+        color: #b5b5b5;
+        margin-top: 20px;
+        margin-left: 45px;
+        width: 95%;
+    }
+
+/* Responsive */
+/* Responsive pour les écrans de téléphone */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column {
+        text-align: center;
+    }
+
+    .footer-logo {
+        max-width: 150px;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .footer-social {
+        flex-direction: row;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        font-size: 10px;
+        margin: 0;
+    }
+}
+
+</style>
+
+<footer>
+    <!-- Container du pied de page -->
+    <div class="footer-container">
+        <!-- Container de la partie gauche (Logo/Nom) -->
+        <div class="footer-logo">
+            <!-- Hyperlink dirigeant vers l'index (Intégrant le logo) -->
+            <a href="/">
+                <img src="/static/utils/images/logo.png" class="logo">
+            </a>
+            <span class="site-namefooter">WeatherWear</span>
+            <p class="footer-description">Prévoyez votre outfit en quelques cliques.</p>
+        </div>
+
+        <!-- Container des liens de navigation -->
+        <div class="footer-links">
+            <!-- Colonne de liens -->
+            <div class="footer-column">
+                <!-- Titre de la colonne -->
+                <h3>NAVIGATION</h3>
+                <!-- Liens de la colonne -->
+                <a href="/">Accueil</a>
+                <a href="/login">Connexion</a>
+                <a href="/signup">Inscription</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>MON COMPTE</h3>
+                <a href="/clothes_list">Ma Garde-Robe</a>
+                <a href="/clothes_suggested">Suggestions de Vêtements</a>
+                <a href="/user_modify">Modifier le Compte</a>
+            </div>
+        </div>
+
+        <!-- Container des liens vers les réseaux sociaux -->
+        <div class="footer-social">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <!-- Container du texte copyright en bas du footer -->
+    <div class="footer-bottom">
+        <p>© 2024 WeatherWear. Tous droits réservés.</p>
+    </div>
+</footer>
+
+<!-- Style FontAwesome pour les icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">

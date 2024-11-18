@@ -1,0 +1,154 @@
+/* Import des polices d'écritures */
+@font-face {
+    font-family: "No5";
+    src: url('../utils/fonts/No5/No5-Regular.eot');
+    src: url('../utils/fonts/No5/No5-Regular.eot') format('embedded-opentype'),
+         url('../utils/fonts/No5/No5-Regular.woff2') format('woff2'),
+         url('../utils/fonts/No5/No5-Regular.woff') format('woff'),
+         url('../utils/fonts/No5/No5-Regular.ttf') format('truetype');
+}
+
+/* Corp du site */
+body {
+    font-family: "No5";
+    background-color: #f1f1fb;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+}
+
+/* Tout les éléments du site */
+* {
+    box-sizing: border-box;
+}
+
+/* Map */
+#map {
+    width: 100%;
+    max-width: 60%;
+    height: 100vh;
+    z-index: 0;
+    cursor: pointer;
+    background-color: #f1f1fb;
+    position: relative;
+}
+
+/* Container du Formulaire */
+.formcontainer {
+    flex: 1;
+    width: 100%;
+    max-width: 40%;
+    height: 100vh;
+    padding: 50px;
+    background: #15161a;
+    border-radius: 0px 20px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+/* Titres */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fafaff;
+}
+
+/* Sous-Titres */
+h3 {
+    color: #fafaff;
+}
+
+/* Container des entrées */
+.input-box {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* Bouton du formulaire */
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #fafaff;
+    color: #15161a;
+    border-radius: 4px;
+}
+
+/* Bouton du formulaire */
+.input-box.button input {
+    font-family: "No5";
+    background-color: #2b2d3a;
+    color: #fafaff;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s background-color;
+    width: 100%;
+}
+
+/* Bouton du formulaire (Quand on passe dessus) */
+.input-box.button input:hover {
+    background-color: #40424D;
+}
+
+/* Texte de Connexion */
+.text {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Lien du texte de Connexion */
+.text a {
+    color: #1e3cfd;
+    text-decoration: none;
+}
+
+/* Lien du texte de Connexion (Quand on passe dessus) */
+.text a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+/* Grandes tablettes et petits ordinateurs portables */
+@media (min-width: 768px) and (max-width: 1024px) {
+    #map {
+        max-width: 50%;
+    }
+
+    .formcontainer {
+        max-width: 50%;
+        padding: 40px;
+    }
+}
+
+/* Ecrans de téléphone */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #map {
+        width: 100%;
+        height: 180px;
+        position: absolute;
+        top: 45%;
+        border-radius: 8px;
+        z-index: 1;
+        max-width: 70%;
+    }
+
+    .formcontainer {
+        width: 100%;
+        max-width: 100vh;
+        border-radius: 0px;
+        z-index:0;
+    }
+
+    .input-box.button {
+        margin-top: 220px;
+    }
+}

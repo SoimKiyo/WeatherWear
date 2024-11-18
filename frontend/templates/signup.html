@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    
+    <!-- Paramètre de la page (permet d'adapter la largeur à la taille de la fenêtre) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titre de la page -->
+    <title>Inscription - WeatherWear</title>
+
+    <!-- Style de la page -->
+    <link rel="stylesheet" href="static/css/signup.css">
+    <!-- Style de la map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+
+    <!-- Favicons sous tout les formats -->
+    <link rel="icon" type="image/png" href="/static/utils/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/static/utils/images/favicon.svg" />
+    <link rel="shortcut icon" href="/static/utils/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/utils/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="WeatherWear" />
+    <link rel="manifest" href="/static/utils/images/site.webmanifest" />
+</head>
+<body>
+    <!-- Importation du header -->
+    {% include 'models/header.html' %}
+
+    <!-- Container du formulaire -->
+    <div class="formcontainer">
+      <!-- Formulaire POST qui envoie vers le "signup" -->
+      <form action="/signup" method="POST">
+        <h2>Inscription</h2>
+
+        <!-- Entrées du formulaire -->
+        <div class="input-box">
+          <input type="email" name="email" placeholder="Entrez votre email" required>
+        </div>
+        <div class="input-box">
+          <input type="password" name="password" placeholder="Créez votre mot de passe" required>
+        </div>
+        <div class="input-box">
+          <input type="password" name="password_confirm" placeholder="Confirmez votre mot de passe" required>
+        </div>
+
+        <!-- Champs cachés pour stocker les informations de la cartes -->
+        <input type="hidden" id="latitude" name="latitude">
+        <input type="hidden" id="longitude" name="longitude">
+        <input type="hidden" id="city" name="city">
+        <input type="hidden" id="country" name="country">
+        <input type="hidden" id="language" name="language"> 
+        
+        <!-- Bouton d'envoie du formulaire -->
+        <div class="input-box button">
+          <input type="submit" value="S'inscrire maintenant">
+        </div>
+
+        <!-- Hyperlink pour se diriger vers la page connexion -->
+        <div class="text">
+          <h3>Déjà un compte ? <a href="/login">Connectez-vous maintenant</a></h3>
+        </div>
+        
+      </form>
+    </div>
+    <!-- Partie droite de la page (Map) -->
+    <div id="map"></div>
+
+    <!-- JS de la map -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <!-- JS de la page -->
+    <script src="static/js/signup.js"></script>
+</body>
+</html>
